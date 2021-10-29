@@ -10,6 +10,11 @@ public class EmployeeWageProblem
 
     public static void main(String[] args)
     {
+        EmployeeWageProblem wage = new EmployeeWageProblem();
+        wage.calculation();
+    }
+    private void calculation()
+    {
         int empHours;
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;
@@ -19,22 +24,20 @@ public class EmployeeWageProblem
             int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
             switch (empCheck)
             {
-                case EMP_FULL_TIME_HOUR -> {
-                            empHours = 8;
-                            System.out.println("Employee is present for full time");
-                }
-                case EMP_PART_TIME_HOUR -> {
-                            empHours = 4;
-                            System.out.println("Employee is present for half time");
-                }
-                default ->
-                        {
-                            empHours = 0;
-                            System.out.println("Employee is absent");
-                        }
+                case EMP_FULL_TIME_HOUR:
+                    empHours = 8;
+                    System.out.println("Employee is present for full time");
+                    break;
+                case EMP_PART_TIME_HOUR:
+                    empHours = 4;
+                    System.out.println("Employee is present for half time");
+                    break;
+                default:
+                    empHours = 0;
+                    System.out.println("Employee is absent");
             }
             totalEmpHrs += empHours;
-            System.out.println("Day:" + totalWorkingDays + "Emp Hr:" + empHours);
+            System.out.println("Day:" + totalWorkingDays +" " + "Emp Hr:" + empHours);
         }
         int totalEmpWage = totalEmpHrs * EMP_WAGE_PER_HOUR;
         System.out.println("Total Emp Wage = " + totalEmpWage);
